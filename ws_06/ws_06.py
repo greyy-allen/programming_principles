@@ -72,3 +72,48 @@
 #         print("Error: ", ve)
 #         print("Please put a string with letter g")
 
+#4
+while True:
+    try:
+        student_1 = input("Student 1(courses 1-4): ")
+        student_2 = input("Student 2(courses 1-4): ")
+        student_3 = input("Student 3(courses 1-4): ")
+        student_4 = input("Student 4(courses 1-4): ")
+        student_5 = input("Student 5(courses 1-5): ")
+        student_grades = [student_1, student_2, student_3, student_4, student_5]
+        average_grade_list = []
+        average_course_grade_list = []
+        initial_course_grade_list = []
+
+        for grades in student_grades:
+            split_grades = grades.split(' ')
+            initial_course_grade_list.append(split_grades)
+
+        course_grades_list = list(zip(*initial_course_grade_list))
+        def average_grade(grades_str):
+            grades = grades_str.split(' ')
+
+            grades_int = [int(num) for num in grades]
+            average_grade_int = sum(grades_int) / len(grades_int)
+            return average_grade_int
+
+        def average_course_grade():
+            course_grades_int = [int(num) for num in course_grades_list]
+            average_course_grade_int = sum(course_grades_int) / len(course_grades_int)
+            return average_course_grade_int
+
+        for grades_str in student_grades:
+            avg_grade = average_grade(grades_str)
+            average_grade_list.append(avg_grade)
+
+        for course_grades_str in course_grades_list:
+            avg_course_grade = average_course_grade()
+            average_course_grade_list.append(avg_course_grade)
+
+        print("The highest average mark of student: ", max(average_grade_list))
+        print("The highest average mark of course: ", max(average_course_grade_list))
+
+    except ValueError as ve:
+        print("Error: ", ve)
+        print("Please put a valid grades")
+
