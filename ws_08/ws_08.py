@@ -37,21 +37,21 @@
 #     print("Output:", common_numbers(first_array, second_array))
 
 #3
-# sourcefile = input("Enter source file: ")
-# def arithmetic_progression(numbers):
-#     difference = numbers[1] - numbers[0]
-#
-#     for i in range(1, len(numbers) - 1):
-#         if numbers[i+1]-numbers[i] != difference:
-#             return False
-#
-#     return True
-#
-# with open(sourcefile, 'r') as f1:
-#     for line in f1:
-#         numbers = line.split()
-#         array_numbers = [int(x) for x in numbers]
-#         if arithmetic_progression(array_numbers):
-#             print(numbers, "True")
-#         else:
-#             print(numbers, "False")
+sourcefile = input("Enter source file: ")
+def arithmetic_progression(numbers):
+    difference = numbers[1] - numbers[0]
+
+    for i in range(1, len(numbers) - 1):
+        if numbers[i+1]-numbers[i] != difference:
+            return False
+
+    return True
+
+with open(sourcefile, 'r') as f1:
+    for line in f1:
+        numbers = line.split()
+        array_numbers = [int(x) for x in numbers]
+        if arithmetic_progression(array_numbers):
+            print(numbers, "True")
+        else:
+            print(numbers, "False")
